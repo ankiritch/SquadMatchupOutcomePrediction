@@ -126,6 +126,7 @@ def step1_update_factions(db_path, faction_info_path, translation_table_path):
     with open(faction_info_path) as f:
         faction_data = json.load(f)
 
+    # Same display name can refer to a different faction type (map dependent)
     map_and_disp_to_type = {}
     for k, faction in faction_data['factionSetups'].items():
         ftype = next((x for x in POSSIBLE_FTYPES if x in k), None)
@@ -171,6 +172,7 @@ def step1_update_factions(db_path, faction_info_path, translation_table_path):
     total = 0
     for match_id, win_id, f1, f2, layer_name, F1, F2 in rows:
         total += 2
+        # Deleted faction
         if F1 == "Middle Eastern Alliance" or F2 == "Middle Eastern Alliance":
             continue
 

@@ -1,3 +1,30 @@
+# Working principle
+## Data collection
+Collects data from the mysquadstats.com API and stores it in an SQLite database
+
+## Model architecture
+### Linear skill evaluation model
+logit = $\sum_{team1}{(\text{player general rating}+\text{unique player role rating})} - \sum_{team2}{(\text{player general rating}+\text{player role rating})}$
+
+General skill centered to 0
+Uses weighted BCE loss, with longer and more recent matches weighing more
+
+### CatBoost gradient boosted trees
+Learns what the skill model cannot explain
+
+Inputs: 
+- map and faction categorical data
+- game duration
+- Team 1 winning chance (skill evaluation model output)
+Output:
+- Team 1 winning chance residual
+
+Recency and game duration weighing
+
+## Evaluation
+- 77.3% accuracy
+- 0.172 brier score
+
 # Setup
 ## Notes
 It's possible 'pip' should be replaced with 'pip3' or 'python' with 'python3' in the commands below
