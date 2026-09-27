@@ -71,6 +71,7 @@ Example queries:
         ORDER BY ABS(predicted_effect);
 
 Database schema:
+```
 CREATE TABLE matches (
     matchId INTEGER PRIMARY KEY,
     gamemode TEXT NOT NULL,
@@ -131,7 +132,7 @@ CREATE TABLE layer_effects (
         matchup TEXT, predicted_effect REAL, actual_team1_winrate REAL, sample_count INTEGER,
         rotation_format TEXT, updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
 CREATE INDEX idx_layer_effects_layer ON layer_effects (layerName, team1_subfaction, team2_subfaction);
-
+```
 
 
 =============
