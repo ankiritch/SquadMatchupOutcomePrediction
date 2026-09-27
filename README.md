@@ -16,10 +16,10 @@ Inputs:
 - map and faction categorical data
 - game duration
 - Team 1 winning chance (skill evaluation model output)
+
+
 Output:
 - Team 1 winning chance residual
-
-Recency and game duration weighing
 
 ## Evaluation
 - 77.3% accuracy
