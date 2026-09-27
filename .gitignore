@@ -1,0 +1,7 @@
+plot_*
+__pycache__/
+layer_effect_model.cbm
+layer_effect_model_meta.json
+rotation.txt
+squadDB*
+basicMatchdataCollectorVariables
