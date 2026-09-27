@@ -3,13 +3,13 @@
 Collects data from the mysquadstats.com API and stores it in an SQLite database
 
 ## Model architecture
-### Linear skill evaluation model
+### Linear skill evaluation model (Stage 1)
 logit = $\sum_{team1}{(\text{player general rating}+\text{unique player role rating})} - \sum_{team2}{(\text{player general rating}+\text{player role rating})}$
 
 General skill centered to 0
 Uses weighted BCE loss, with longer and more recent matches weighing more
 
-### CatBoost gradient boosted trees
+### CatBoost gradient boosted trees (Stage 2)
 Learns what the skill model cannot explain
 
 Inputs: 
@@ -21,7 +21,7 @@ Inputs:
 Output:
 - Team 1 winning chance residual
 
-## Evaluation
+## Evaluation: $\sigma(\text{linear model output}) + \text{CatBoost model output}$)
 - 77.3% accuracy
 - 0.172 brier score
 
